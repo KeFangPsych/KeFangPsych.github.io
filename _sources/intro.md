@@ -67,8 +67,6 @@
 
 <div style="text-align: center;">
     <font face="'Consolas', 'Menlo'" color=#2f9e44 id="lastUpdated"></font>
-    
-    <font face="'Consolas', 'Menlo'" color=#2f9e44 size=2>I recommend dark mode of the website</font>
 </div>
 <script>
     // Set the last updated date
@@ -81,3 +79,7 @@
         }
     });
 </script>
+
+<div style="text-align: center;">    
+    <table><tr><td bgcolor=14181E><font face="'Consolas', 'Menlo'" color=white size=2>I recommend dark mode of the website</font></td></tr></table>
+</div>
