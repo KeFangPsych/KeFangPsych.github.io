@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: my_cv
+- file: resource
+  #sections:
+  #- file: what_are_estimators
+- file: contact
