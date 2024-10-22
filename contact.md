@@ -1,6 +1,6 @@
-# <font face="'Consolas', 'Menlo'" color=#fab005>letsChat</font> <font face="'Consolas', 'Menlo'" color=#2f9e44>**(Contact:)**</font>
+# <font face="'Consolas', 'Menlo', 'Courier New'" color=#fab005>letsChat</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>**(Contact:)**</font>
 
-<font face="'Consolas', 'Menlo'" color=#2f9e44>
+<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>
 <body>
 {<br>
     &nbsp;&nbsp;&nbsp;"address": [<br>
@@ -24,7 +24,7 @@
 </font>
 
 <div style="text-align: center;">
-    <font face="'Consolas', 'Menlo'" color=#2f9e44 id="lastUpdated"></font>
+    <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44 id="lastUpdated"></font>
 </div>
 <script>
     // Set the last updated date
