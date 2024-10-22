@@ -10,8 +10,20 @@
 :::
 
 :::{tab-item} <font face="'Consolas', 'Menlo'" color=#2f9e44>a pic🖼️ of me</font>
+
 <div style="text-align: center;">
-    <img src="ke.jpg" alt="Otaru_2024" height="380" style="filter: brightness(1);">
+    <img 
+        src="ke.jpg" 
+        alt="Otaru_2024" 
+        style="
+            filter: brightness(1);
+            max-height: 380px;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        "
+    >
 </div>
 
  <div style="text-align: center;">
