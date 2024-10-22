@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>‘What are estimators: How sample mean and variance can be understood as estimators’ &#8212; Ke&#39;s Personal Website</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'what_are_estimators';</script>
+    <link rel="icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="2024-10-22"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Ke's Personal Website</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="my_cv.html">
+    <font face="Consolas" color=#2f9e44>My CV</font>
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="resource.html">
+    <font face="Consolas" color=#2f9e44>Resource</font>
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact.html">
+    <font face="Consolas" color=#fab005>letsChat</font> <font face="Consolas" color=#2f9e44>(Contact:)</font>
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="my_cv.html">
+    <font face="Consolas" color=#2f9e44>My CV</font>
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="resource.html">
+    <font face="Consolas" color=#2f9e44>Resource</font>
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact.html">
+    <font face="Consolas" color=#fab005>letsChat</font> <font face="Consolas" color=#2f9e44>(Contact:)</font>
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="intro.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">‘What are...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><font face="Consolas" color=#2f9e44 size=5>StatsReview📈</font></p>
+<section id="what-are-estimators-how-sample-mean-and-variance-can-be-understood-as-estimators">
+<h1>‘What are estimators: How sample mean and variance can be understood as estimators’<a class="headerlink" href="#what-are-estimators-how-sample-mean-and-variance-can-be-understood-as-estimators" title="Link to this heading">#</a></h1>
+<p>author: “Ke Fang (<a class="reference external" href="mailto:kf2393&#37;&#52;&#48;nyu&#46;edu">kf2393<span>&#64;</span>nyu<span>&#46;</span>edu</a>)”
+date: “2023-10-08”</p>
+</section>
+<section id="i-a-general-framework-of-statistical-modelling">
+<h1><strong>I. A general framework of statistical modelling</strong><a class="headerlink" href="#i-a-general-framework-of-statistical-modelling" title="Link to this heading">#</a></h1>
+<p>In statistics, we commonly employ a theoretical framework known as a <strong>Data Generating Process (DGP)</strong> to model the generation of data. This DGP, defined by certain <strong>parameters</strong>, governs how data is generated probabilistically (Note 1). For instance, when dealing with a single variable, we may assume that our data comprises independent observations drawn from an identical normal distribution, with the parameters of interest being the mean and variance of the distribution. Alternatively, we might describe one variable as a linear transformation of another variable with the addition of Gaussian noise. In this case, the parameters define both the relationship between the variables and the characteristics of the added noise.</p>
+<p><em>Note 1: Parameters of the DGP could be but are not necessarily the statistical characteristics of the DGP (such as expectation or variance), it should be more abstractly understood as variable quantitatives that define the process. For example, for a Poisson distribution, there is only one <span class="math notranslate nohighlight">\(\lambda\)</span> parameter, which coincidentally also is the expectation and variance. And the uniform distribution is defined by its lower and upper bounds, which are not direct statistical measures of central tendency or spread.</em></p>
+<p>The primary objective in statistics involves several key steps: first, specifying a plausible DGP; second, estimating the parameters or other quantities of interest (e.g., statistical characteritics) associated with this DGP from data; third, probabilistic statements or hypotheses about the DGP based on the sample data; and finally, assessing the adequacy of our assumed DGP and identifying any potential model shortcomings or violations. Additionally, when we have multiple possible DGPs to consider, we can compare them to determine the “best” one. These processes are often referred to as <strong>model specification</strong>, <strong>parameter estimation</strong>, <strong>statistical inference</strong>, <strong>model diagnosis</strong>, and <strong>model comparison</strong>.</p>
+<p><strong>Model specification</strong>, often referred to as specifying the Data Generating Process (DGP), is a “ art and science” process that heavily depends on your prior knowledge about the underlying process, the specificity of DGP you are willing to make, and the data you have on hand as constraints.  For instance, if you are investigating the relationship between height and the biological sex of individuals, prior knowledge suggests that these two variables are related. Therefore, you might choose to model height as a function of sex with some added noise to account for variability. Another factor often considered is the specificty of the DGP. In some cases, if you are less willing to make assumptions, you might choose to roughly define you DGP (e.g., simply assume the heights are independently drawn from a distribution with finite expectation and variance), or more specifically define it (e.g., drawn from a normal distribution). This could have significant influence on the later estimation and inference processes. However, it’s essential to consider the data you have at your disposal. If your dataset only includes the height variable and lacks information on sex or any other relevant factors, then attempting to model the data with this DGP may not be suitable or informative. Furthermore, once we have gone through the process of estimation and inference, we may evaluate the adequacy of our initially assumed DGP through model diagnosis. If the model appears to be inadequate in explaining the observed data, we can refine or select a different DGP and repeat the process.</p>
+</section>
+<section id="ii-estimation">
+<h1><strong>II. Estimation</strong><a class="headerlink" href="#ii-estimation" title="Link to this heading">#</a></h1>
+<p><strong>Estimation</strong> in statistical modeling involves harnessing observed data to determine the parameters (or other quantities related to parameters) of interest within our Data Generating Process (DGP). The parameter (or related quantity) we seek to estimate is commonly known as the <strong>estimand</strong>, representing the quantity of interest or the specific DGP parameter we aim to pinpoint.</p>
+<p>During the estimation phase, we use an <strong>estimator</strong>—a mathematical function of the observed data—to approximate a parameter inherent to the DGP. This estimator is tied to a specific <strong>objective function</strong>, often referred to as the loss, cost, error, or even reward function. This objective function, which is often a function of both the observed data and the parameters, quantifies the deviation between the model’s predictions and the observed data. Ideally, the estimator is derived by optimizing this objective function to align closely with the parameter it seeks to estimate.</p>
+<p>Thus, the estimation process is also often referred to as the process of “fitting the data to the model.” This involves tweaking the model’s parameters to most effectively match the observed data. Both estimation and fitting are achieved by optimizing the objective function, which essentially tries to pinpoint the parameter that best characterizes the data. This may seem less obvious for simple estimates such as sample mean and Ordinary Least Square (OLS) estimators (but we will prove that they indeed are), but more importantly, they are especially the case when the estimators are complicated and have no closed-form formula to directly calculate the parameter estimates such as Maximum Likelihood Estimators (MLE).</p>
+<p>Due to the inherent probabilistic nature of the DGP, the estimator is a random variable. When we apply this estimator to a specific data set, what we obtain is an <strong>estimate</strong>, representing a single realization or observation of the estimator.</p>
+</section>
+<section id="iii-property-of-estimators">
+<h1><strong>III. Property of Estimators</strong><a class="headerlink" href="#iii-property-of-estimators" title="Link to this heading">#</a></h1>
+<p>Estimators are mathematical functions used to estimate unknown parameters from observed data, and there can be many different estimators for the same parameter. Just as you can measure the length of a plastic snake using a tape measure or hand spans, you can estimate a person’s big-five personality traits using various methods, such as the BFI-44, BFI-10, or, innovatively, by asking their family and friends to answer the scales? Each of these methods is essentially an estimator for the underlying personality traits. As you might felt that the tape measure is probably better than the hand span measure (more accurate, or more consistent when measured repeatedly?), some estimators are better than the others. And there are some quantity to judge them on.</p>
+<p>Several properties or criteria are used to judge the goodness or quality of an estimator. To mathematically represent these properties of estimators, let’s consider an estimator <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> of a parameter <span class="math notranslate nohighlight">\(\theta\)</span>, based on a sample <span class="math notranslate nohighlight">\(X_1, X_2, ..., X_n\)</span>:</p>
+<section id="unbiasedness">
+<h2>1. <strong>Unbiasedness</strong><a class="headerlink" href="#unbiasedness" title="Link to this heading">#</a></h2>
+<p>An estimator is said to be unbiased if the expected value of the estimator equals the true parameter value.</p>
+<p>Specifically, the <strong>bias</strong> of an estimator is the expected difference between estimated value and the true parameter value.</p>
+<div class="math notranslate nohighlight">
+\[\text{Bias}(\hat{\theta}) = E(\hat{\theta} -\theta) = E(\hat{\theta}) - \theta\]</div>
+<p>An estimator is said to be unbiased if its bias equals zero, which means that on average, the distance between the estimates and the estimand (DGP parameter) average out to be zero.</p>
+<p>Mathematically, then:</p>
+<div class="math notranslate nohighlight">
+\[E(\hat{\theta}) = \theta \text{ or } E(\hat{\theta} -\theta) = 0\]</div>
+</section>
+<section id="efficiency">
+<h2>2. <strong>Efficiency</strong>:<a class="headerlink" href="#efficiency" title="Link to this heading">#</a></h2>
+<p>An efficient estimator is an estimator that estimates the quantity of interest in some “best possible” manner. The notion of “best possible” relies upon the choice of a particular loss function — the function which quantifies the relative degree of undesirability of estimation errors of different magnitudes.</p>
+<section id="for-unbiased-estimator">
+<h3><strong>2.1 For unbiased estimator:</strong><a class="headerlink" href="#for-unbiased-estimator" title="Link to this heading">#</a></h3>
+<p>Among a class of unbiased estimators, the estimator with the smallest variance is said to be efficient.</p>
+<p>The variance of an estimator of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is defined as the the squared distance, on average, between one estimate and the estimator.</p>
+<p>Mathematically defined as:</p>
+<div class="math notranslate nohighlight">
+\[Var(\hat{\theta}) = E\left[\left(\hat{\theta} - E(\hat{\theta})\right)^2\right]\]</div>
+<p>Thus, for any two unbiased estimator <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> and <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span> of the estimand. <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is said to be more efficient than <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span>, if and only if:</p>
+<div class="math notranslate nohighlight">
+\[\text{Var}(\hat{\theta}) \leq \text{Var}(\tilde{\theta})\]</div>
+<p>The <strong>Minimum Variance Unbiased Estimator (MVUE)</strong> is an estimator that is both unbiased and has the minimum variance among all unbiased estimators.</p>
+<p>Mathematically, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is the MVUE if and only if:</p>
+<div class="math notranslate nohighlight">
+\[\forall\ \tilde{\theta} \text{ s.t. } E(\hat{\theta}) = \theta, \text{Var}(\hat{\theta}) \leq \text{Var}(\tilde{\theta})\]</div>
+<p>However, it’s often not feasible to construct and evaluate all possible unbiased estimators to determine which one has the minimum variance.  The Cramér-Rao Lower Bound (CRLB) stipulates the best possible precision (lowest variance) that any unbiased estimator of a parameter can achieve.</p>
+<div class="math notranslate nohighlight">
+\[\text{Var}(\hat{\theta}) \geq \frac{1}{I(\theta)}\]</div>
+<p>The CRLB is defined as the reciprocal of the Fisher Information. The Fisher Information, <span class="math notranslate nohighlight">\(I(\theta)\)</span>, measures the amount of information that an observable random variable <span class="math notranslate nohighlight">\(X\)</span> carries about an unknown parameter <span class="math notranslate nohighlight">\(\theta\)</span> upon which the probability of <span class="math notranslate nohighlight">\(X\)</span> depends. It is calculated as the expected value of the squared score function, which is deined as the derivative of the log-likelihood function of <span class="math notranslate nohighlight">\(X\)</span> with respect to the parameter <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[I(\theta) = E\left[\left(\frac{\partial}{\partial \theta} \ln f(x; \theta)\right)^2\right]\]</div>
+<p>Thus, if an unbiased estimator reaches the CRLB, it is considered efficient and effectively the MVUE.</p>
+<p>However, it should be noted that CRLB require a more well-defined DGP rather than the iid assumptions, the pdf of population has to be defined in order to calculate the likelihood.</p>
+<p>Also, the CRLB does not necessarily indicate that an estimator achieving this bound exists, nor does it provide a method for constructing such an estimator.</p>
+</section>
+<section id="for-biased-estimators">
+<h3><strong>2.2 For biased estimators:</strong><a class="headerlink" href="#for-biased-estimators" title="Link to this heading">#</a></h3>
+<p>The idea of efficiency could also be extend to biased estimators, one of the intuitive way to evaluate the estimator integrating both bias and variance is to consider how much it deviate from the true value of the estimand, mathematically known as the mean standard error (MSE):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   \begin{align*}
+   MSE(\hat{\theta}) =&amp; E[(\hat{\theta} - \theta)^2] \\
+   =&amp; E(\hat{\theta}^2 - 2 \cdot \theta \cdot \hat{\theta} + \theta^2) \\
+   =&amp; E(\hat{\theta}^2) - 2\theta \cdot E(\hat{\theta}) + \theta^2 \\
+   \\
+   \text{ As }  Var(X)&amp; = E(X^2) - E^2(X) \\
+   \\
+   MSE(\hat{\theta}) =&amp; Var(\hat{\theta}) + E^2(\hat{\theta}) - 2\theta \cdot E(\hat{\theta}) + \theta^2 \\ 
+   =&amp; Var(\hat{\theta}) + [E(\hat{\theta}) - \theta)]^2 \\
+   =&amp; Var(\hat{\theta}) + Bias(\hat{\theta})^2
+   \end{align*}
+   \end{split}\]</div>
+<p>In this case, a more efficient estimator is the one with smaller MSE, and the estimator with the smallest MSE is considered to be the most efficient among all estimators (biased or unbiased).</p>
+<p>Specifically, for any two estimators <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> and <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span> of the estimand. <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is said to be more efficient than <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span>, if and only if:</p>
+<div class="math notranslate nohighlight">
+\[\text{MSE}(\hat{\theta}) \leq \text{MSE}(\tilde{\theta})\]</div>
+<p>The lowest possible variance and MSE, is also provided by the generalized form of the Cramér-Rao Lower Bound (CRLB) such that:</p>
+<div class="math notranslate nohighlight">
+\[\text{Var}(\hat{\theta}) \geq {\frac {[1+{\frac{d\ Bias(\theta )}{d\theta}} ]^{2}}{I(\theta )}}\]</div>
+<p>Noted that the key difference here is the <span class="math notranslate nohighlight">\(\frac{d\ Bias(\theta )}{d\theta}\)</span> term, suggesting that if the first order deravitives of bias regarding the estimand is negative, the estimator could have a smaller bound on variance.</p>
+<div class="math notranslate nohighlight">
+\[\text{MSE}(\hat{\theta}) \geq {\frac {[1+{\frac{d\ Bias(\theta )}{d\theta}} ]^{2}}{I(\theta )}} + [\text{Bias}(\theta)]^2\]</div>
+<p>Similar to the variance, noted that although the <span class="math notranslate nohighlight">\([\text{Bias}(\theta)]^2\)</span> increased the bound, it is possible for the <span class="math notranslate nohighlight">\(\frac{d\ Bias(\theta )}{d\theta}\)</span> term to overcome this increase resulting in the estimator could have a smaller bound on MSE.</p>
+<p>Similarly noted: Generalized CRLB require a more well-defined DGP rather than the iid assumptions, the pdf of population has to be defined in order to calculate the likelihood. And the CRLB does not necessarily indicate that an estimator achieving this bound exists, nor does it provide a method for constructing such an estimator.</p>
+</section>
+</section>
+<section id="consistency">
+<h2>3. <strong>Consistency</strong>:<a class="headerlink" href="#consistency" title="Link to this heading">#</a></h2>
+<p>An estimator is consistent if, as the sample size n grows to infinity, it converges in probability to the true parameter value. Formally, it can represented as</p>
+<div class="math notranslate nohighlight">
+\[\hat{\theta}_n \xrightarrow{P} \theta\]</div>
+<p>As <span class="math notranslate nohighlight">\(n \to \infty\)</span>, the estimator <span class="math notranslate nohighlight">\(\hat{\theta}_n\)</span> converges in probability to the true parameter <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Note: <span class="math notranslate nohighlight">\(\xrightarrow{P}\)</span> denotes <strong>convergence in probability</strong>. Mathematically, for every <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} P(|\hat{\theta}_n - \theta| &gt; \epsilon) = 0\]</div>
+<p>This essentially means that the probability that <span class="math notranslate nohighlight">\(\hat{\theta}_n\)</span> deviates from <span class="math notranslate nohighlight">\(\theta\)</span> by more than <span class="math notranslate nohighlight">\(\epsilon\)</span> goes to zero as <span class="math notranslate nohighlight">\(n\)</span> increases.</p>
+<p>Informally, as we gather more data, the estimate gets closer and closer to the actual parameter.</p>
+</section>
+<section id="linearity">
+<h2>4. <strong>Linearity</strong>:<a class="headerlink" href="#linearity" title="Link to this heading">#</a></h2>
+<p>An estimator is linear if it is a linear combination of the observations.</p>
+<div class="math notranslate nohighlight">
+\[\hat{\theta} = X \cdot\vec{a} = a_0 + \sum_{i=1}^{n} a_i X_i\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vec{a} = (a_0, a_1, ..., a_n)\)</span> is a real numbered vector.</p>
+<p>Additionally, the <strong>Best Linear Unbiased Estimator (BLUE)</strong> is an estimator that is a unbiased linear unbiased estimator and has the minimum variance among all linear unbiased estimators.</p>
+<p>Mathematically, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is the BLUE if and only if:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\forall\ \tilde{\theta}\ \text{ s.t. }\ \tilde{\theta} = X \cdot \vec{a}\ \ \text{and }\ E(\hat{\theta}) = \theta,\\ \text{Var}(\hat{\theta}) \leq \text{Var}(\tilde{\theta})\end{split}\]</div>
+<p>However, it is worth noting that, although BLUEs are bounded by the Cramér-Rao Lower Bound (CRLB), the BLUEs may not reach it even if other unbiased non-linear estimators may have lower variances or do reach CRLM.</p>
+<p>So BLUE is often proved in other ways (see OLS and Gaussian-Markov notes).</p>
+<p>Of course, if the variance of a linear unbiased estimator actually reach the CRLB, it would be a BLUE as there is no smaller variance can be reached among all unbiased estimators (including linearly unbiased ones).</p>
+</section>
+<section id="asymptotic-normality">
+<h2>5. <strong>Asymptotic Normality</strong><a class="headerlink" href="#asymptotic-normality" title="Link to this heading">#</a></h2>
+<p>An estimator is said to be asymptotically normal if, as <span class="math notranslate nohighlight">\(n \to \infty\)</span>, the distribution of the estimator (often normalized estimators) converges in distribution to a normal distribution (if normalized estimator, with mean 0 and some variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>).</p>
+<p>Mathematically:</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{n}(\hat{\theta}_n - \theta) \xrightarrow{D} N(0, \sigma^2)\]</div>
+<p>Note: <span class="math notranslate nohighlight">\(\xrightarrow{D}\)</span> denotes <strong>convergence in distribution</strong> (or weak convergence).</p>
+<p>For any real number <span class="math notranslate nohighlight">\(z\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} P(\sqrt{n}(\hat{\theta}_n - \theta) \leq z) = \Phi(z;\,0,\,\sigma^2)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi\)</span> is the cumulative distribution function of the normal distribution.</p>
+</section>
+<section id="other-properties">
+<h2>6. <strong>Other properties</strong>:<a class="headerlink" href="#other-properties" title="Link to this heading">#</a></h2>
+<p>There are other properties can be considered when evaluating an estimator that we may not cover, such as <strong>sufficiency</strong> (this is more mathematically involved and less practically used) and <strong>robustness</strong> (related to model diagnosis and evaluation, a more qualitative property measuring whether the estimator’s performance deteriorate significantly when assumptions about the underlying data distribution are violated).</p>
+</section>
+</section>
+<section id="iv-example-1-the-sample-mean">
+<h1><strong>IV. Example 1: The Sample Mean</strong><a class="headerlink" href="#iv-example-1-the-sample-mean" title="Link to this heading">#</a></h1>
+<p>Our data generating process (DGP) assumes that our <span class="math notranslate nohighlight">\(n\)</span> (sample size) observations of a random variable <span class="math notranslate nohighlight">\(X\)</span> are independently drawn from one identical distribution (i.i.d.) with expectation <span class="math notranslate nohighlight">\(E(X) = \mu\)</span> and variance <span class="math notranslate nohighlight">\(Var(X) = \sigma^2\)</span>.</p>
+<p>The sample mean is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\bar{X} = \frac{\sum^{n}_{i=1}X_i}{n}\]</div>
+<section id="sample-mean-as-an-estimator">
+<h2><strong>1. Sample mean as an estimator</strong><a class="headerlink" href="#sample-mean-as-an-estimator" title="Link to this heading">#</a></h2>
+<p>There are two intuitive schemes of using the sample mean as an estimator:</p>
+<section id="sample-mean-as-method-of-moments-mom-estimator">
+<h3><strong>1.1 Sample mean as method of moments (MoM) estimator</strong><a class="headerlink" href="#sample-mean-as-method-of-moments-mom-estimator" title="Link to this heading">#</a></h3>
+<p>First, if you are familiar with the method of moment (MoM) estimation in mathematical statistics, the sample mean is the MoM estimator of the population expectation.</p>
+<p>Simply put, the <span class="math notranslate nohighlight">\(n\)</span>th order moment of <span class="math notranslate nohighlight">\(X\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[E(X^k) = \int^{\infty}_{-\infty} x^k \cdot pdf(x^k) dx\]</div>
+<p>In MoM, intuitively from a frequentist approach, the observed frequency in sample converge to the true probability (proved by the Glivenko-Cantelli Theorem).</p>
+<p>So it is intuitive to construct the sample moment as</p>
+<div class="math notranslate nohighlight">
+\[\bar{X}^k = \sum_{x^k_i \in X^k} \left[x^k_i \cdot \frac{n | X^k = x^k_i}{n} \right] = \frac{\sum x^k_i}{n}\]</div>
+<p>These estimators of the (raw) moments are unbiased for the corresponding population moments.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(\bar{X}^k) =&amp; E(\frac{1}{n} \cdot \sum x^k_i) \\
+=&amp; \frac{1}{n} \cdot E(\sum x^k_i) \\
+=&amp; \frac{1}{n} \cdot \sum E(x^k_i) \\
+\text{As } x_i &amp;\text{ are } i.i.d\\
+=&amp; \frac{1}{n} \cdot n \cdot E(X^k) \\ 
+=&amp; E(X^k)
+\end{align*}
+\end{split}\]</div>
+<p><strong>Note:</strong> Although the MoM estimator of population <strong>(raw) moments</strong> are unbiased, this doesn’t mean the other MoM estimators are also unbiased. As we will very shortly see, the MoM estimator estimating the population variance is actually biased.</p>
+<p>According to the Law of Lagre Number, the sample moments actually converge to the population moment.</p>
+<p>If we are interested in other parameters that are not directly related to moments. We can construct the pdf of the population distribution of X as <span class="math notranslate nohighlight">\(F(x, \vec{\theta})\)</span>. The vector <span class="math notranslate nohighlight">\(\vec{\theta}\)</span> is the parameters governing the population distribution. For example, in a uniform distribution, <span class="math notranslate nohighlight">\(\vec{\theta}\)</span> would be a two-dimensional vector including the upper and lower limit of the distribution <span class="math notranslate nohighlight">\(\vec{\theta} = (a, b)\)</span>, for a normal distribution, it would be a 2-dimensional vector including <span class="math notranslate nohighlight">\(\vec{\theta} = (\mu, \sigma^2)\)</span>, for a Possion distribution , it would be a scalar <span class="math notranslate nohighlight">\(\theta = \lambda\)</span>.</p>
+<p>In order to estimate <span class="math notranslate nohighlight">\(\vec{\theta}\)</span>, we can construct a set of equations using the moments of <span class="math notranslate nohighlight">\(X\)</span>. The number of euqations needed should equal to the number of elements in <span class="math notranslate nohighlight">\(\vec{\theta}\)</span>. Especially, as the higher order moments guarenteen the existence of lower order moments, we could always start with the first moments. Of course, for MoM to work, this means the moments of must exist.</p>
+<p>The set of function we would use is:</p>
+<div class="math notranslate nohighlight">
+\[E(X^k) = g_k(\vec{\theta}),\ k = 1, ..., norm(\vec{\theta})\]</div>
+<p>Lastly, in order to solve for <span class="math notranslate nohighlight">\(\vec{\theta}\)</span>, we will replace the left of the equations with the sample moments.</p>
+<p>Although the when we defined <span class="math notranslate nohighlight">\(F(x, \vec{\theta})\)</span>, the equation will also simplify as <span class="math notranslate nohighlight">\(\frac{\sum x_i}{n} = \mu\)</span>. The population expectation (first moment), even without specifying the specific <span class="math notranslate nohighlight">\(F(x, \vec{\theta})\)</span>, is estimated using the sample mean <span class="math notranslate nohighlight">\(\bar{X}\)</span>.</p>
+</section>
+<section id="sample-mean-as-a-least-square-estimator">
+<h3><strong>1.2. Sample mean as a least square estimator</strong><a class="headerlink" href="#sample-mean-as-a-least-square-estimator" title="Link to this heading">#</a></h3>
+<p>Secondly, the sample mean could be understand as the least square (LS) estimator of the population expectaion.</p>
+<p>The method of least squares estimation estimates parameters by optimizing/minimizing the sum of squared discrepancies between the statistics of each observed data, and their expected values.</p>
+<p>Thus, given a set of observation of <span class="math notranslate nohighlight">\(X: X_1, X_2, ..., X_n\)</span>, we could construct an estimator of the population expectation as:</p>
+<div class="math notranslate nohighlight">
+\[loss = \sum^n_{i} \left[ (X_i - \mu)^2 \right]\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{\mu}_{LS} = \arg\min_{\mu} \left[ \sum (X_i - \mu)^2\right]\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{d}{d \mu} \left[ \sum (X_i - \mu)^2\right] = -2\sum X_i + 2n \mu = 0\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mu}_{LS} = \frac{\sum X_i}{n} = \bar{X}\]</div>
+</section>
+</section>
+<section id="property-of-the-sample-mean-as-estimator">
+<h2><strong>2. Property of the sample mean as estimator</strong><a class="headerlink" href="#property-of-the-sample-mean-as-estimator" title="Link to this heading">#</a></h2>
+<p>Once we have constructed this estimator, we could evaluate it based on the standard we mentioned before:</p>
+<p>To evaluate the bias in estimator, we calculate the expectation of the sample mean (actually already proved in the MoM section):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(\bar{X}) =&amp; E(\frac{1}{n} \cdot \sum^n_i(X_i)) \\ 
+=&amp; \frac{1}{n} \cdot \sum^n_iE(X_i)\\
+\text{As } X_i &amp;\text{ are  from indentical distributions}\\
+=&amp;\frac{1}{n}\cdot n \cdot \mu\\
+=&amp; \mu
+\end{align*}
+\end{split}\]</div>
+<p>and the variance of the sample mean would be:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+Var(\bar{X}) =&amp; Var(\frac{1}{n} \cdot \sum^n_i(X_i))\\
+=&amp; \frac{1}{n^2} \cdot \sum^n_i Var(X_i)\\
+=&amp;\frac{1}{n^2} \cdot n \cdot \sigma^2\\
+=&amp; \frac{\sigma^2}{n}\\[2ex]
+*\text{Note: } &amp; Var(X_1 +X_2) = Var(X_1) + Var(X_2) + Cov(X_1, X_2)\\
+&amp;\text{As the samples are drawn individually, } Cov(X_1, X_2) =0, \\
+&amp;Var(X_1 +X_2) = Var(X_1) + Var(X_2)\\
+\end{align*}
+\end{split}\]</div>
+</section>
+</section>
+<section id="iv-example-2-the-sample-variance">
+<h1><strong>IV. Example 2: The Sample Variance</strong><a class="headerlink" href="#iv-example-2-the-sample-variance" title="Link to this heading">#</a></h1>
+<p>The estimator for variance could also be constructed in using the same logic:</p>
+<p>Suppose <span class="math notranslate nohighlight">\(X_1, X_2, ... X_n\)</span> are iid random variables from a population with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<section id="constructing-an-estimator-for-population-variance">
+<h2><strong>1. Constructing an estimator for population variance</strong><a class="headerlink" href="#constructing-an-estimator-for-population-variance" title="Link to this heading">#</a></h2>
+<section id="the-method-of-moments-estimator-mom-of-the-population-variance">
+<h3><strong>1.1. The method of moments estimator (MoM) of the population variance</strong><a class="headerlink" href="#the-method-of-moments-estimator-mom-of-the-population-variance" title="Link to this heading">#</a></h3>
+<p>Given the definition of variance of a random variable, we know:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma^2 = E[X - E(X)]^2 = E(X^2) - E^2(X)
+\]</div>
+<p>Then the MoM estimator of the population would just replace the population moments <span class="math notranslate nohighlight">\(E(X^2)\)</span> and <span class="math notranslate nohighlight">\(E(X)\)</span> with corresponding sample moments.</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma^2}_{MoM} = \frac{\sum (X^2_i)}{n} - \left[\frac{\sum (X_i)}{n}\right]^2\]</div>
+</section>
+<section id="the-least-square-ls-estimator-of-the-population-variance">
+<h3><strong>1.2 The least square (LS) estimator of the population variance</strong><a class="headerlink" href="#the-least-square-ls-estimator-of-the-population-variance" title="Link to this heading">#</a></h3>
+<p><strong>(1) If we assume population expectation is known <span class="math notranslate nohighlight">\(\mu\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[loss = \sum^n_{i} \left[ (X_i - \mu)^2 - \sigma^2\right]^2\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma^2}_{LS} = \arg\min_{\sigma^2} \sum^n_{i} \left[ (X_i - \mu)^2 - \sigma^2\right]^2\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{d\ loss}{d \sigma^2} = -2 \sum \left[ (X_i- \mu)^2 - \sigma^2 \right] = 0\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma^2}_{LS_1} = \frac{\sum (X_i - \mu)^2}{n}\]</div>
+<p><strong>(2) we assume population expectation is unknown and we use the sample mean (also LS estimator) as its estimator</strong></p>
+<div class="math notranslate nohighlight">
+\[loss = \sum^n_{i} \left[ (X_i - \bar{X    })^2 - \sigma^2\right]^2\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma^2}_{LS} = \arg\min_{\sigma^2} \sum^n_{i} \left[ (X_i - \bar{X})^2 - \sigma^2\right]^2\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{d\ loss}{d \sigma^2} = -2 \sum \left[ (X_i- \bar{X})^2 - \sigma^2 \right] = 0\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma^2}_{LS_2} = \frac{\sum (X_i - \bar{X})^2}{n}\]</div>
+<p>We can see the <span class="math notranslate nohighlight">\(\hat{\mu}_{LS_2}\)</span> estimator is identical to the MoM estimator <span class="math notranslate nohighlight">\(\hat{\mu}_{MoM}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\hat{\sigma^2}_{LS_2} =&amp; \frac{\sum (X_i - \bar{X})^2}{n} \\
+=&amp; \frac{\sum (X^2_i - 2\bar{X}X_i + \bar{X})}{n} \\
+=&amp; \frac{\sum (X^2_i) - 2\bar{X}\sum X_i + \sum (\bar{X}^2)}{n} \\
+=&amp; \frac{\sum (X^2_i) - 2\bar{X}\cdot n\bar{X} + n\bar{X}^2}{n} \\
+=&amp; \frac{\sum (X^2_i) - n\bar{X}^2}{n} \\
+=&amp; \frac{\sum (X^2_i)}{n} - \bar{X}^2 \\
+=&amp; \frac{\sum (X^2_i)}{n} - \left[\frac{\sum (X_i)}{n}\right]^2 = \hat{\sigma^2}_{MoM}
+\end{align*}
+\end{split}\]</div>
+<p>This is because in MoM, we replaced all the population moments with sample moments (assume <span class="math notranslate nohighlight">\(\mu\)</span> is unknown and use the sample mean as estimator for first moment).</p>
+</section>
+</section>
+<section id="property-of-the-population-variance-estimators">
+<h2><strong>2. Property of the population variance estimators</strong><a class="headerlink" href="#property-of-the-population-variance-estimators" title="Link to this heading">#</a></h2>
+<p>Now we can evaluate the two estimators we have:</p>
+<p>First, if the population mean <span class="math notranslate nohighlight">\(\mu\)</span> is known, the LS estimator is unbiased:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E(\hat{\sigma^2}_{LS_1}) =&amp; E \left[ \frac{\sum (X_i - \mu)^2}{n} \right] \\
+=&amp; \frac{1}{n }E \left[ \sum (X^2_i - 2\mu X_i + \mu^2) \right] \\
+=&amp; \frac{1}{n }E \left[ \sum (X^2_i) - 2\mu \sum (X_i) + n\mu^2) \right] \\
+=&amp; \frac{1}{n } \left[ E \left( \sum (X^2_i) \right) - 2\mu \cdot E \left(\sum (X_i) \right) + n\mu^2 \right] \\
+=&amp; \frac{1}{n } \left[ \sum E \left( X^2_i \right) - 2\mu \cdot \sum E(X_i) + n\mu^2 \right] \\
+=&amp; \frac{1}{n } \left[ \sum \left[ Var(X_i) +E^2(X_i) \right] - 2\mu \cdot \sum E(X_i) + n\mu^2 \right] \\
+=&amp; \frac{1}{n } \left[ n \sigma^2 + n\mu^2 - 2\mu \cdot n\mu + n\mu^2 \right] \\
+=&amp; \sigma^2 \\
+\end{align*}
+\end{split}\]</div>
+<p>However, if we use the MoM estimator, or the LS estimator when the population expetectation is estimated using sample mean. The estimator is actually biased:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+E[\hat{\sigma^2}_{MoM}] = E(\hat{\sigma^2}_{LS_2}) =&amp; E \left[ \frac{\sum (X_i - \bar{X})^2}{n} \right] \\
+=&amp; \frac{1}{n }E \left[ \sum (X^2_i - 2\bar{X} X_i + \bar{X}^2) \right] \\
+=&amp; \frac{1}{n }E \left[ \sum (X^2_i) - 2\bar{X} \sum (X_i) + n\bar{X}^2) \right] \\
+=&amp; \frac{1}{n } \left[ E \left( \sum (X^2_i) \right) - 2 E \left(\bar{X} \cdot \sum (X_i) \right) + nE (\bar{X}^2 ) \right] \\
+=&amp; \frac{1}{n } \left[\sum E(X^2_i) - 2 E \left(\bar{X} \cdot n\bar{X} \right) + nE (\bar{X}^2 ) \right] \\
+=&amp; \frac{1}{n } \left\{\sum \left[ Var(X_i) + E^2(X_i)\right] -  nE (\bar{X}^2 ) \right\} \\
+=&amp; \frac{1}{n } \left\{n\left[ Var(X_i) + E^2(X_i)\right] -  n \left[ Var(\bar{X}) + E^2(\bar{X})) \right] \right\} \\
+=&amp; \frac{1}{n } \left[n \sigma^2 + n\mu^2 -  n \frac{\sigma^2}{n} - n \mu^2 \right] \\
+=&amp; \left(1 - \frac{1}{n}\right) \cdot \sigma^2\\
+=&amp; \frac{n-1}{n} \cdot \sigma^2\\
+\end{align*}
+\end{split}\]</div>
+<p>We can see that this bias is introduced due to the variance of <span class="math notranslate nohighlight">\(\bar{X}\)</span>. More generally, <span class="math notranslate nohighlight">\(E(\bar{X}) = \mu\)</span> only guarantee linear transformation of <span class="math notranslate nohighlight">\(\bar{X}\)</span> will remain unbiased, but as the MoM estimator is a non-linear transformation, the unbiasness no longer holds (i.e.,  <span class="math notranslate nohighlight">\(g(\cdot)\)</span> is linear <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(E[g(X)] = g(E[X])\)</span>, but without such constraints, the equality is not always true, see also the Jensen’s Inequality).</p>
+<p>Specifically, this biased estimator always underestimate the population by a factor of <span class="math notranslate nohighlight">\(\frac{n-1}{n}\)</span>, as expectation has the linearity property (i.e., <span class="math notranslate nohighlight">\(E(aX) = a\cdot E(X)\)</span>). We can easily adjust for this bias by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{Let } S^2 \text{ be an unbiased estiamtor of } \sigma^2 \text{ and } S^2 = b \cdot \hat{\sigma^2}_{MoM}\\
+E(b \cdot \hat{\sigma^2}_{MoM}) = b \cdot \frac{n-1}{n} \cdot \sigma^2 = \sigma^2 \Rightarrow b = \frac{n}{n-1}\\
+S^2 = \frac{n}{n-1} \cdot\frac{\sum (X_i - \bar{X})^2}{n} = \frac{\sum (X_i - \bar{X})^2}{n-1}
+\end{split}\]</div>
+<p>Thus, the sample variance, which is the adjusted MoM or LS estimator of population variance, is an unbiased estimator of population variance when the population expectation is unknown. The adjustment is known as the Bessel’s correction.</p>
+<div class="math notranslate nohighlight">
+\[S^2  = \frac{\sum (X_i - \bar{X})^2}{n-1}\]</div>
+<p>The variance of the sample variance estimator is (the detailed proof can be found <a class="reference external" href="https://doi.org/10.1080/00031305.2014.966589">O’Neill, 2014</a>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+Var(S^2) &amp;= E\bigg[ \Big[S^2 - E(S^2) \Big]^2\bigg] \\
+&amp;= \bigg(\kappa - \frac{n-3}{n-1} \bigg) \frac{\sigma^4}{n}\\
+\\
+\text{with }\ \kappa =&amp; E \left[ \left(\frac{X - \mu}{\sigma} \right)^4 \right] = \frac{E [(X - \mu)^4]}{\sigma^4}
+\end{align*}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\kappa\)</span> is the kurtosis of the population, which is defined as the fourth standardize moments. <span class="math notranslate nohighlight">\(\kappa\)</span> is bounded by <span class="math notranslate nohighlight">\([1, \infty)\)</span>. Specifically, <span class="math notranslate nohighlight">\(\kappa \geq 1 +\gamma^2\)</span>, where <span class="math notranslate nohighlight">\(\gamma = E[(X_i - \mu)^3] / \sigma^3\)</span> is the skewness (third standardized moment) of the population.</p>
+<p>According to the property of variance, we could also calculate the variance for the MoM estimator.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+Var \left( \hat{\sigma^2}_{MoM} \right) =&amp; Var \left( \frac{n-1}{n} \cdot S^2 \right) \\
+=&amp; \left( \frac{n-1}{n} \right)^2 Var(S^2) \\
+=&amp; \left( \frac{n-1}{n} \right)^2 \bigg(\kappa - \frac{n-3}{n-1} \bigg) \frac{\sigma^4}{n}
+\end{align*}
+\end{split}\]</div>
+<p>We can see that the biased MoM estimator always have a lower variance than the sample variance.</p>
+<p>The bias of the MoM estimator is:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+Bias \left( \hat{\sigma^2}_{MoM} \right) = \sigma^2 - \frac{n-1}{n} \cdot \sigma^2 = \frac{\sigma^2}{n} 
+\end{align*}
+\]</div>
+<p>We can also potentially compare these two estimators using MSE.</p>
+<p>The MSE of the MoM estimator is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+MSE\left( \hat{\sigma^2}_{MoM} \right) = Var\left( \hat{\sigma^2}_{MoM} \right) + \left[ Bias\left( \hat{\sigma^2}_{MoM} \right) \right]^2 \\
+= \left( \frac{n-1}{n} \right)^2 \bigg(\kappa - \frac{n-3}{n-1} \bigg) \frac{\sigma^4}{n} +\frac{\sigma^4}{n^2} \\
+\end{split}\]</div>
+<p>As sample variance is an unbiased estimator, its MSE is its variance:</p>
+<div class="math notranslate nohighlight">
+\[
+MSE(S^2) = \bigg(\kappa - \frac{n-3}{n-1} \bigg) \frac{\sigma^4}{n}
+\]</div>
+<p>The difference between the MSEs of the two estimators is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+MSE(S^2) - MSE( \hat{\sigma^2}_{MoM}) = \left[ (2 - \frac{1}{n})(\kappa - \frac{n-3}{n-1}) -1\right] \frac{\sigma^4}{n^2} \\
+\text{As for the sample variance estimator to exist } n \geq 2, \\
+2 &gt; (2 - \frac{1}{n}) \geq 1.5, \text{ with } \lim_{n \rightarrow \infty} (2 - \frac{1}{n}) = 2;\\
+\kappa -1 &lt; (\kappa - \frac{n-3}{n-1}) \leq \kappa + 1, \text{ with } \lim_{n \rightarrow \infty} (\kappa - \frac{n-3}{n-1}) = \kappa -1\\
+\end{split}\]</div>
+<p>So as long as <span class="math notranslate nohighlight">\(\kappa \geq 2\)</span>, <span class="math notranslate nohighlight">\(\hat{\sigma^2}_{MoM}\)</span> always has a smaller MSE. This gives us some intuition of balancing different aspects when selecting an estimator. For example, the biased estimator has a smaller MSE under certain conditions, indicating that on average, the squared distance between the estimated values and the true value are smaller, although the distance does not average out to be zero. Also, as the variance of the biased estimator is always smaller than it of the unbiased one, by adding biases, we might be able to shrink our variance (bias-variance trade-off).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">‘What are estimators: How sample mean and variance can be understood as estimators’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#i-a-general-framework-of-statistical-modelling"><strong>I. A general framework of statistical modelling</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-estimation"><strong>II. Estimation</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-property-of-estimators"><strong>III. Property of Estimators</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unbiasedness">1. <strong>Unbiasedness</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency">2. <strong>Efficiency</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-unbiased-estimator"><strong>2.1 For unbiased estimator:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-biased-estimators"><strong>2.2 For biased estimators:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency">3. <strong>Consistency</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linearity">4. <strong>Linearity</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-normality">5. <strong>Asymptotic Normality</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-properties">6. <strong>Other properties</strong>:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iv-example-1-the-sample-mean"><strong>IV. Example 1: The Sample Mean</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-mean-as-an-estimator"><strong>1. Sample mean as an estimator</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-mean-as-method-of-moments-mom-estimator"><strong>1.1 Sample mean as method of moments (MoM) estimator</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-mean-as-a-least-square-estimator"><strong>1.2. Sample mean as a least square estimator</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-of-the-sample-mean-as-estimator"><strong>2. Property of the sample mean as estimator</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iv-example-2-the-sample-variance"><strong>IV. Example 2: The Sample Variance</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-an-estimator-for-population-variance"><strong>1. Constructing an estimator for population variance</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-method-of-moments-estimator-mom-of-the-population-variance"><strong>1.1. The method of moments estimator (MoM) of the population variance</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-least-square-ls-estimator-of-the-population-variance"><strong>1.2 The least square (LS) estimator of the population variance</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#property-of-the-population-variance-estimators"><strong>2. Property of the population variance estimators</strong></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/what_are_estimators.md">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
