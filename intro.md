@@ -1,15 +1,15 @@
-# <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>**Ke 'Kay' Fang 方可**</font>
+# <font face="'Consolas', 'Menlo'" color=#2f9e44>**Ke 'Kay' Fang 方可**</font>
 
 ::::{tab-set}
 
-:::{tab-item} <font face="'Consolas', 'Menlo', 'Courier New'" color=#c92a2a>g</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#a61e4d>r</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#862e9c>e</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#1864ab>e</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#087f5b>t</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#2b8a3e>i</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#5c940d>n</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#fcc419>g</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#f59f00>s</font> <font face="'Consolas', 'Menlo', 'Courier New'" color=#e67700>!</font> 
+:::{tab-item} <font face="'Consolas', 'Menlo'" color=#c92a2a>g</font> <font face="'Consolas', 'Menlo'" color=#a61e4d>r</font> <font face="'Consolas', 'Menlo'" color=#862e9c>e</font> <font face="'Consolas', 'Menlo'" color=#1864ab>e</font> <font face="'Consolas', 'Menlo'" color=#087f5b>t</font> <font face="'Consolas', 'Menlo'" color=#2b8a3e>i</font> <font face="'Consolas', 'Menlo'" color=#5c940d>n</font> <font face="'Consolas', 'Menlo'" color=#fcc419>g</font> <font face="'Consolas', 'Menlo'" color=#f59f00>s</font> <font face="'Consolas', 'Menlo'" color=#e67700>!</font> 
 
-<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44 size=5>Heyy! I was wondering where you were</font> 😉
+<font face="'Consolas', 'Menlo'" color=#2f9e44 size=5>Heyy! I was wondering where you were</font> 😉
 
-<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44 size=2>I recommend dark mode of the website</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44 size=2>I recommend dark mode of the website</font>
 :::
 
-:::{tab-item} <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>a pic🖼️ of me</font>
+:::{tab-item} <font face="'Consolas', 'Menlo'" color=#2f9e44>a pic🖼️ of me</font>
 
 <div style="text-align: center;">
     <img 
@@ -27,7 +27,7 @@
 </div>
 
  <div style="text-align: center;">
-    <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>Otaru🎐 Japan, Summer 2024</font>
+    <font face="'Consolas', 'Menlo'" color=#2f9e44>Otaru🎐 Japan, Summer 2024</font>
 </div>
   <script>
     // Detect dark mode and adjust the image
@@ -48,26 +48,26 @@
   </script>
 :::
 
-:::{tab-item} <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>explore other pages to get know me</font>
+:::{tab-item} <font face="'Consolas', 'Menlo'" color=#2f9e44>explore other pages to get know me</font>
 ```{tableofcontents}
 ```
 :::
 
 ::::
 
-<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>My name is **Ke Fang 方可** (the family name comes first in Chinese, my given name "可-Ke" is pronounced like "Kuh" with the third tone). You can also call me **Kay**.</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>My name is **Ke Fang 方可** (the family name comes first in Chinese, my given name "可-Ke" is pronounced like "Kuh" with the third tone). You can also call me **Kay**.</font>
 
-<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>Starting 2024 fall, I’m a [Psychology PhD student](https://psychology.stanford.edu/people/ke-kay-fang?search=Ke%20Fang) in the cognitive area at <font color=#a44142>Stanford University</font>🌲, working with the amazing ✨[Robert Hawkins](https://rdhawkins.com/)✨ in the [Social Interaction & Language (SoIL) Lab🌱](https://socialinteractionlab.github.io/people/).</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>Starting 2024 fall, I’m a [Psychology PhD student](https://psychology.stanford.edu/people/ke-kay-fang?search=Ke%20Fang) in the cognitive area at <font color=#a44142>Stanford University</font>🌲, working with the amazing ✨[Robert Hawkins](https://rdhawkins.com/)✨ in the [Social Interaction & Language (SoIL) Lab🌱](https://socialinteractionlab.github.io/people/).</font>
 
-<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>Aspired to be a cognitive scientist of social minds, I'm specifically interested in computational approaches to understand how distributed individual minds support emergent collective-level behaviors and patterns such as cooperation, social norms, and polarization.</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>Aspired to be a cognitive scientist of social minds, I'm specifically interested in computational approaches to understand how distributed individual minds support emergent collective-level behaviors and patterns such as cooperation, social norms, and polarization.</font>
 
-<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>Previously, I completed my master’s at <font color=#7b5aa6>NYU Gallatin</font>🗽, working with [Madalina Vlasceanu](https://climatecognition.stanford.edu/lab-members) and [Ashwini Ashokkumar](https://www.ashwinia.com/team) in the social psychology area. Before moving to the US, I earned my bachelor of Management from <font color=#518499>Lanzhou University</font>🐫 in China.</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>Previously, I completed my master’s at <font color=#7b5aa6>NYU Gallatin</font>🗽, working with [Madalina Vlasceanu](https://climatecognition.stanford.edu/lab-members) and [Ashwini Ashokkumar](https://www.ashwinia.com/team) in the social psychology area. Before moving to the US, I earned my bachelor of Management from <font color=#518499>Lanzhou University</font>🐫 in China.</font>
 
-<font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44>When not working, I usually make myself a cup of pour-over coffee (I drink hot coffee all year round) and read, and possibly try to draw some watercolors.</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>When not working, I usually make myself a cup of pour-over coffee (I drink hot coffee all year round) and read, and possibly try to draw some watercolors.</font>
 
 
 <div style="text-align: center;">
-    <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44 id="lastUpdated"></font>
+    <font face="'Consolas', 'Menlo'" color=#2f9e44 id="lastUpdated"></font>
 </div>
 <script>
     // Set the last updated date
