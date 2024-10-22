@@ -6,6 +6,7 @@
 
 <div style="text-align: center;">
     <font face="'Consolas', 'Menlo', 'Courier New'" color=#2f9e44 id="lastUpdated"></font>
+    
     <font face="'Consolas', 'Menlo'" color=#2f9e44 size=2>I recommend dark mode of the website</font>
 </div>
 <script>
