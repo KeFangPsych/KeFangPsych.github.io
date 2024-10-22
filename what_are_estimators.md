@@ -1,4 +1,4 @@
-<font face="Consolas" color=#2f9e44 size=5>StatsReview📈</font>
+<font face="Consolas, Menlo" color=#2f9e44 size=5>StatsReview📈</font>
 
 ### 'What are estimators: How sample mean and variance can be understood as estimators'
 author: "Ke Fang (kf2393@nyu.edu)"
