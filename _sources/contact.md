@@ -12,7 +12,7 @@
     &nbsp;&nbsp;],<br>
     &nbsp;&nbsp;&nbsp;"profiles": [<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://profiles.stanford.edu/349282'>stanford profile</a>",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://scholar.google.com/citations?hl=en&user=ptD89lQAAAAJ'>googlescholar</a>",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://scholar.google.com/citations?hl=en&user=ptD89lQAAAAJ'>google scholar</a>",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://x.com/KeFang99'>twitter/x</a>",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://www.linkedin.com/in/ke-fang-02126178/'>linkedin</a>",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://github.com/KeFangPsych'>github</a>",<br>
