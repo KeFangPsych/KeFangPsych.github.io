@@ -4,6 +4,8 @@
 
 :::{tab-item} <font face="'Consolas', 'Menlo'" color=#c92a2a>g</font> <font face="'Consolas', 'Menlo'" color=#a61e4d>r</font> <font face="'Consolas', 'Menlo'" color=#862e9c>e</font> <font face="'Consolas', 'Menlo'" color=#1864ab>e</font> <font face="'Consolas', 'Menlo'" color=#087f5b>t</font> <font face="'Consolas', 'Menlo'" color=#2b8a3e>i</font> <font face="'Consolas', 'Menlo'" color=#5c940d>n</font> <font face="'Consolas', 'Menlo'" color=#fcc419>g</font> <font face="'Consolas', 'Menlo'" color=#f59f00>s</font> <font face="'Consolas', 'Menlo'" color=#e67700>!</font> 
 
+<font face="'Consolas', 'Menlo'" color=#2f9e44 size=2>click the pic tab! let's e-meet ⬆️</font>
+
 <font face="'Consolas', 'Menlo'" color=#2f9e44 size=5>Heyy! I was wondering where you were</font> 😉
 
 :::
