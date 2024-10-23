@@ -56,13 +56,13 @@
 
 ::::
 
-<font face="'Consolas', 'Menlo'" color=#2f9e44>My name is **Ke Fang 方可** (the family name comes first in Chinese, my given name "可-Ke" is pronounced like "Kuh" with the third tone). You can also call me **Kay**.</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>You can call me **Kay**! My full name is **Ke Fang 方可** (in Chinese, the family name "方-Fang" comes first, my given name "可-Ke" is pronounced like "Kuh" with the third tone).</font>
 
 <font face="'Consolas', 'Menlo'" color=#2f9e44>Starting 2024 fall, I’m a [Psychology PhD student](https://psychology.stanford.edu/people/ke-kay-fang?search=Ke%20Fang) in the cognitive area at <font color=#a44142>Stanford University</font>🌲, working with the amazing ✨[Robert Hawkins](https://rdhawkins.com/)✨ in the [Social Interaction & Language (SoIL) Lab🌱](https://socialinteractionlab.github.io/people/).</font>
 
 <font face="'Consolas', 'Menlo'" color=#2f9e44>Aspired to be a cognitive scientist of social minds, I'm specifically interested in computational approaches to understand how distributed individual minds support emergent collective-level behaviors and patterns such as cooperation, social norms, and polarization.</font>
 
-<font face="'Consolas', 'Menlo'" color=#2f9e44>Previously, I completed my master’s at <font color=#7b5aa6>NYU Gallatin</font>🗽, working with [Madalina Vlasceanu](https://climatecognition.stanford.edu/lab-members) and [Ashwini Ashokkumar](https://www.ashwinia.com/team) in the social psychology area. Before moving to the US, I earned my bachelor of Management from <font color=#518499>Lanzhou University</font>🐫 in China.</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>I did my master’s at <font color=#7b5aa6>NYU</font>🗽 with [Madalina Vlasceanu](https://climatecognition.stanford.edu/lab-members) and [Ashwini Ashokkumar](https://www.ashwinia.com/team) on social psychology. Before coming to the US, I got my bachelor of management from <font color=#518499>Lanzhou University</font>🐫 in China.</font>
 
 <font face="'Consolas', 'Menlo'" color=#2f9e44>When not working, I usually make myself a cup of pour-over coffee (I drink hot coffee all year round) and read, and possibly try to draw some watercolors.</font>
 
