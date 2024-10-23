@@ -1,4 +1,4 @@
-# <font face="'Consolas', 'Menlo'" color=#2f9e44>**Ke 'Kay' Fang 方可**</font>
+# <font face="'Consolas', 'Menlo'" color=#2f9e44>**Ke 'Kay' Fang**</font>
 
 ::::{tab-set}
 
