@@ -4,7 +4,7 @@
 <body>
 {<br>
     &nbsp;&nbsp;&nbsp;"address": [<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://psychology.stanford.edu/people/ke-kay-fang?search=Ke%20Fang'>department of psychology</a>", university of stanford, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://psychology.stanford.edu/people/ke-kay-fang?search=Ke%20Fang'>department of psychology</a>", stanford university, <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"450 jane stanford way, stanford, 94305, usa"<br>
     &nbsp;&nbsp;],<br>
     &nbsp;&nbsp;&nbsp;"contact": [<br>
