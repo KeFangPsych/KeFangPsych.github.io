@@ -4,7 +4,12 @@
 
 <iframe src="kf-cv.pdf" width="100%" height="600px"></iframe>
 
-<iframe src="https://drive.google.com/file/d/1UZPV0UgcL1d2AE_yYgepYAPRHqkkGrgt/&embedded=true" width="100%" height="600px"></iframe>
+<iframe 
+    src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/KeFangPsych/KeFangPsych.github.io/main/kf-cv.pdf&embedded=true" 
+    width="100%" 
+    height="600px" 
+    frameborder="0">
+</iframe>
 
 <div style="text-align: center;">
     <font face="'Consolas', 'Menlo'" color=#2f9e44 id="lastUpdated"></font>
