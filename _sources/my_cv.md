@@ -2,8 +2,6 @@
 
 <font face="'Consolas', 'Menlo'" color=#2f9e44>Thanks for your interest! This is my [CV](https://github.com/KeFangPsych/KeFangPsych.github.io/blob/main/kf-cv.pdf)</font> 🫡
 
-<iframe src="kf-cv.pdf" width="100%" height="600px"></iframe>
-
 <iframe 
     src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/KeFangPsych/KeFangPsych.github.io/main/kf-cv.pdf&embedded=true" 
     width="100%" 
