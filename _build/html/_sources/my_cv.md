@@ -1,8 +1,9 @@
 # <font face="'Consolas', 'Menlo'" color=#2f9e44>**My CV**</font>
 
-<font face="'Consolas', 'Menlo'" color=#2f9e44>Thanks for your interest! This is my CV</font> 🫡
+<font face="'Consolas', 'Menlo'" color=#2f9e44>Thanks for your interest! This is my [CV](https://github.com/KeFangPsych/KeFangPsych.github.io/blob/main/kf-cv.pdf)</font> 🫡
 
-<embed src="kf-cv.pdf" type="application/pdf" width="100%" height="600px" />
+<iframe src="kf-cv.pdf" width="100%" height="600px"></iframe>
+
 
 <div style="text-align: center;">
     <font face="'Consolas', 'Menlo'" color=#2f9e44 id="lastUpdated"></font>
