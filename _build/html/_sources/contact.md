@@ -15,6 +15,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://scholar.google.com/citations?hl=en&user=ptD89lQAAAAJ'>google scholar</a>",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://x.com/KeFang99'>twitter/x</a>",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://www.linkedin.com/in/ke-fang-02126178/'>linkedin</a>",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://bsky.app/profile/kefang.bsky.social'>bluesky</a>",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://github.com/KeFangPsych'>github</a>",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://wp.nyu.edu/gallatin-kefang/'>old website</a>"<br>
     &nbsp;&nbsp;]<br>
