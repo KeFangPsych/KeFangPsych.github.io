@@ -15,7 +15,7 @@
 <div style="text-align: center;">
     <img 
         src="ke.jpg" 
-        alt="Otaru_2024" 
+        alt="Stanford_2025" 
         style="
             filter: brightness(1);
             max-height: 380px;
@@ -28,7 +28,7 @@
 </div>
 
  <div style="text-align: center;">
-    <font face="'Consolas', 'Menlo'" color=#2f9e44>Otaru🎐 Japan, Summer 2024</font>
+    <font face="'Consolas', 'Menlo'" color=#2f9e44>The Dish📡 Stanford, Jan. 2025 (photo by Chenghao Zhou)</font>
 </div>
   <script>
     // Detect dark mode and adjust the image
@@ -58,7 +58,7 @@
 
 <font face="'Consolas', 'Menlo'" color=#2f9e44>You can call me **Kay**! My full name is **Ke Fang 方可** (in Chinese, the family name "方-Fang" comes first, my given name "可-Ke" is pronounced like "Kuh" with the third tone).</font>
 
-<font face="'Consolas', 'Menlo'" color=#2f9e44>Starting 2024 fall, I’m a [Psychology PhD student](https://psychology.stanford.edu/people/ke-kay-fang?search=Ke%20Fang) in the cognitive area at <font color=#a44142>Stanford University</font>🌲, working with the amazing ✨[Robert Hawkins](https://rdhawkins.com/)✨ in the [Social Interaction & Language (SoIL) Lab🌱](https://socialinteractionlab.github.io/people/).</font>
+<font face="'Consolas', 'Menlo'" color=#2f9e44>Starting 2024 fall, I’m a [Psychology PhD student](https://psychology.stanford.edu/people/ke-kay-fang?search=Ke%20Fang) in the cognitive area at <font color=#a44142>Stanford University</font>🌲, working with the amazing ✨[Robert Hawkins](https://rdhawkins.com/)✨ in the [Social Interaction Lab (SoIL🌱)](https://socialinteractionlab.github.io/people/).</font>
 
 <font face="'Consolas', 'Menlo'" color=#2f9e44>Aspired to be a cognitive scientist of social minds, I'm specifically interested in computational approaches to understand how distributed individual minds support emergent collective-level behaviors and patterns such as cooperation, social norms, and polarization.</font>
 
