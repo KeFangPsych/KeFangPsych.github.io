@@ -11,9 +11,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email": "<a href='mailto:fangke@stanford.edu'>fangke@stanford.edu</a>"<br>
     &nbsp;&nbsp;],<br>
         &nbsp;&nbsp;&nbsp;"social_media": [<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://x.com/KeFang99'>twitter/x</a>",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://www.linkedin.com/in/ke-fang-02126178/'>linkedin</a>",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://bsky.app/profile/kefang.bsky.social'>bluesky</a>",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://bsky.app/profile/kefang.bsky.social'>bluesky</a>",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://www.linkedin.com/in/ke-fang-02126178/'>linkedin</a>",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://x.com/KeFang99'>twitter/x</a>",<br>
     &nbsp;&nbsp;]<br>
     &nbsp;&nbsp;&nbsp;"profiles": [<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<a href='https://profiles.stanford.edu/349282'>stanford profile</a>",<br>
