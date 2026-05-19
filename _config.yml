@@ -41,6 +41,10 @@ sphinx:
   config:
     html_last_updated_fmt: "%Y-%m-%d"
     html_theme: pydata_sphinx_theme
+    # Copy these files verbatim into the build root so raw <img>/<a> tags can find them.
+    html_extra_path:
+      - ke.jpg
+      - kf-cv.pdf
     html_theme_options:
       show_prev_next: false
       sidebar_secondary_remove: true
