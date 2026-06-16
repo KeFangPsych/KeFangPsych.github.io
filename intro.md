@@ -6,6 +6,8 @@
 
 <font face="'Consolas', 'Menlo'" color=#2f9e44 size=2>let's e-meet! click the pic tab ⬆️</font>
 
+<font face="'Consolas', 'Menlo'" color=#fab005>Update 05/01/2026:</font> <font face="'Consolas', 'Menlo'" color=#2f9e44>my first-year project on epistemic vigilance has been accepted as a paper and talk at CogSci 2026! see you in Rio 🇧🇷</font> 
+
 <font face="'Consolas', 'Menlo'" color=#2f9e44 size=5>Hey! Good to finally meet u !)</font> 
 
 :::
